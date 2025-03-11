@@ -1,0 +1,17 @@
+C:\Users\VIP\Desktop\Education_Center\Contract\bin\Debug\net9.0\Education_Center_Contract.deps.json
+C:\Users\VIP\Desktop\Education_Center\Contract\bin\Debug\net9.0\Education_Center_Contract.dll
+C:\Users\VIP\Desktop\Education_Center\Contract\bin\Debug\net9.0\Education_Center_Contract.pdb
+C:\Users\VIP\Desktop\Education_Center\Contract\obj\Debug\net9.0\Education_Center_Contract.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\VIP\Desktop\Education_Center\Contract\obj\Debug\net9.0\Education_Center_Contract.AssemblyInfoInputs.cache
+C:\Users\VIP\Desktop\Education_Center\Contract\obj\Debug\net9.0\Education_Center_Contract.AssemblyInfo.cs
+C:\Users\VIP\Desktop\Education_Center\Contract\obj\Debug\net9.0\Education_Center_Contract.csproj.CoreCompileInputs.cache
+C:\Users\VIP\Desktop\Education_Center\Contract\obj\Debug\net9.0\Education_Center_Contract.dll
+C:\Users\VIP\Desktop\Education_Center\Contract\obj\Debug\net9.0\refint\Education_Center_Contract.dll
+C:\Users\VIP\Desktop\Education_Center\Contract\obj\Debug\net9.0\Education_Center_Contract.pdb
+C:\Users\VIP\Desktop\Education_Center\Contract\obj\Debug\net9.0\ref\Education_Center_Contract.dll
+C:\Users\VIP\Desktop\Education_Center\Contract\obj\Debug\net9.0\Education_Center_Contract.csproj.AssemblyReference.cache
+C:\Users\VIP\Desktop\Education_Center\Contract\bin\Debug\net9.0\Education_Center_Domain.dll
+C:\Users\VIP\Desktop\Education_Center\Contract\bin\Debug\net9.0\Education_Center_Domain.pdb
+C:\Users\VIP\Desktop\Education_Center\Contract\obj\Debug\net9.0\Educatio.6218F1C9.Up2Date
+C:\Users\VIP\Desktop\Education_Center\Contract\bin\Debug\net9.0\Education_Center_DbContext.dll
+C:\Users\VIP\Desktop\Education_Center\Contract\bin\Debug\net9.0\Education_Center_DbContext.pdb

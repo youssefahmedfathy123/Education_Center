@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "Education_Center_Serveces/1.0.0": {
+        "runtime": {
+          "Education_Center_Serveces.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Education_Center_Serveces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

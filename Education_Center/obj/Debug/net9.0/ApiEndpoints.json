@@ -1,0 +1,323 @@
+[
+  {
+    "ContainingType": "Education_Center.Controllers.Identity.Cont_IdentityController",
+    "Method": "Login",
+    "RelativePath": "api/Cont_Identity/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "login",
+        "Type": "Education_Center_Domain.Identity.Login",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Education_Center.Controllers.Identity.Cont_IdentityController",
+    "Method": "Register",
+    "RelativePath": "api/Cont_Identity/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Position",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Branch_id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CreatedBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CreatedOn",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ModifiedBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ModifiedOn",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_ManagersController",
+    "Method": "CreateSchedule",
+    "RelativePath": "api/DashBoard_Managers/CreateSchedule",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Subject_name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Branch_id",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Day_of_week",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Start_time",
+        "Type": "System.TimeSpan",
+        "IsRequired": false
+      },
+      {
+        "Name": "End_time",
+        "Type": "System.TimeSpan",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_ManagersController",
+    "Method": "RecordAttendance",
+    "RelativePath": "api/DashBoard_Managers/RecordAttendance",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Student_Email",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_ManagersController",
+    "Method": "Session_Status",
+    "RelativePath": "api/DashBoard_Managers/Session_Status",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Schedule_id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Status",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_StudentsController",
+    "Method": "Display_total_absences_perStudent_ByStudent",
+    "RelativePath": "api/DashBoard_Students/Display_total_absences_perStudent_ByStudent",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_StudentsController",
+    "Method": "Display_total_Grades_ByUser",
+    "RelativePath": "api/DashBoard_Students/Display_total_Grades_ByUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_StudentsController",
+    "Method": "EnrollInSubject",
+    "RelativePath": "api/DashBoard_Students/EnrollInSubject",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "create",
+        "Type": "Education_Center_Domain.Help.CreateStudentSubjects",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_StudentsController",
+    "Method": "Get_detailed_attendance_ByUser",
+    "RelativePath": "api/DashBoard_Students/Get_detailed_attendance_ByUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_StudentsController",
+    "Method": "upcoming_class_sessions",
+    "RelativePath": "api/DashBoard_Students/upcoming_class_sessions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_TeacherController",
+    "Method": "AddingGradeTypes",
+    "RelativePath": "api/DashBoard_Teacher/AddingGradeTypes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Education_Center_Contract.Dto.Dto_GradeTypes",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_TeacherController",
+    "Method": "Assign_Grades",
+    "RelativePath": "api/DashBoard_Teacher/Assign_Grades",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "assign",
+        "Type": "Education_Center_Domain.Help.AssignGrades",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_TeacherController",
+    "Method": "Create_Subject",
+    "RelativePath": "api/DashBoard_Teacher/Create_Subject",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Education_Center_Contract.Dto.Dto_CreateSubject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_TeacherController",
+    "Method": "Get_Attendance",
+    "RelativePath": "api/DashBoard_Teacher/Get_Attendance",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_TeacherController",
+    "Method": "SessionAttendance",
+    "RelativePath": "api/DashBoard_Teacher/SessionAttendance",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Session_id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Student_UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Status",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Education_Center.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Education_Center.WeatherForecast, Education_Center, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]

@@ -1,0 +1,12 @@
+C:\Users\VIP\Desktop\Education_Center\Domain\bin\Debug\net9.0\Education_Center_Domain.deps.json
+C:\Users\VIP\Desktop\Education_Center\Domain\bin\Debug\net9.0\Education_Center_Domain.dll
+C:\Users\VIP\Desktop\Education_Center\Domain\bin\Debug\net9.0\Education_Center_Domain.pdb
+C:\Users\VIP\Desktop\Education_Center\Domain\obj\Debug\net9.0\Education_Center_Domain.csproj.AssemblyReference.cache
+C:\Users\VIP\Desktop\Education_Center\Domain\obj\Debug\net9.0\Education_Center_Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\VIP\Desktop\Education_Center\Domain\obj\Debug\net9.0\Education_Center_Domain.AssemblyInfoInputs.cache
+C:\Users\VIP\Desktop\Education_Center\Domain\obj\Debug\net9.0\Education_Center_Domain.AssemblyInfo.cs
+C:\Users\VIP\Desktop\Education_Center\Domain\obj\Debug\net9.0\Education_Center_Domain.csproj.CoreCompileInputs.cache
+C:\Users\VIP\Desktop\Education_Center\Domain\obj\Debug\net9.0\Education_Center_Domain.dll
+C:\Users\VIP\Desktop\Education_Center\Domain\obj\Debug\net9.0\refint\Education_Center_Domain.dll
+C:\Users\VIP\Desktop\Education_Center\Domain\obj\Debug\net9.0\Education_Center_Domain.pdb
+C:\Users\VIP\Desktop\Education_Center\Domain\obj\Debug\net9.0\ref\Education_Center_Domain.dll

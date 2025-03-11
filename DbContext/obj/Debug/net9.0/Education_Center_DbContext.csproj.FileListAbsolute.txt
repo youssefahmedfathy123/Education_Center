@@ -1,0 +1,17 @@
+C:\Users\VIP\Desktop\Education_Center\DbContext\bin\Debug\net9.0\Education_Center_DbContext.deps.json
+C:\Users\VIP\Desktop\Education_Center\DbContext\bin\Debug\net9.0\Education_Center_DbContext.runtimeconfig.json
+C:\Users\VIP\Desktop\Education_Center\DbContext\bin\Debug\net9.0\Education_Center_DbContext.dll
+C:\Users\VIP\Desktop\Education_Center\DbContext\bin\Debug\net9.0\Education_Center_DbContext.pdb
+C:\Users\VIP\Desktop\Education_Center\DbContext\obj\Debug\net9.0\Education_Center_DbContext.csproj.AssemblyReference.cache
+C:\Users\VIP\Desktop\Education_Center\DbContext\obj\Debug\net9.0\Education_Center_DbContext.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\VIP\Desktop\Education_Center\DbContext\obj\Debug\net9.0\Education_Center_DbContext.AssemblyInfoInputs.cache
+C:\Users\VIP\Desktop\Education_Center\DbContext\obj\Debug\net9.0\Education_Center_DbContext.AssemblyInfo.cs
+C:\Users\VIP\Desktop\Education_Center\DbContext\obj\Debug\net9.0\Education_Center_DbContext.csproj.CoreCompileInputs.cache
+C:\Users\VIP\Desktop\Education_Center\DbContext\obj\Debug\net9.0\Education_Center_DbContext.dll
+C:\Users\VIP\Desktop\Education_Center\DbContext\obj\Debug\net9.0\refint\Education_Center_DbContext.dll
+C:\Users\VIP\Desktop\Education_Center\DbContext\obj\Debug\net9.0\Education_Center_DbContext.pdb
+C:\Users\VIP\Desktop\Education_Center\DbContext\obj\Debug\net9.0\Education_Center_DbContext.genruntimeconfig.cache
+C:\Users\VIP\Desktop\Education_Center\DbContext\obj\Debug\net9.0\ref\Education_Center_DbContext.dll
+C:\Users\VIP\Desktop\Education_Center\DbContext\bin\Debug\net9.0\Education_Center_Domain.dll
+C:\Users\VIP\Desktop\Education_Center\DbContext\bin\Debug\net9.0\Education_Center_Domain.pdb
+C:\Users\VIP\Desktop\Education_Center\DbContext\obj\Debug\net9.0\Educatio.C143E820.Up2Date
