@@ -14,7 +14,7 @@ namespace Education_Center_DbContext.Config.SubjectConfig
         public void Configure(EntityTypeBuilder<Subject> builder)
         {
             builder.HasKey(k => k.Id);
-
+            builder.Property(x => x.Name).HasConversion<string>();
             builder.HasOne(o => o.Branch)
                   .WithMany(m => m.Subjects)
                   .HasForeignKey(f => f.Branch_id);

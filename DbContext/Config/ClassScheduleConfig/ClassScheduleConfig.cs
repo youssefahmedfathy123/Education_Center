@@ -26,6 +26,7 @@ namespace Education_Center_DbContext.Config.ClassScheduleConfig
                     .WithMany(m => m.ClassSchedules)
                     .HasForeignKey(f => f.Branch_id)
                     .OnDelete(DeleteBehavior.ClientSetNull);
+            builder.Property(x => x.Day_of_week).HasConversion<string>();
         }
 
     }

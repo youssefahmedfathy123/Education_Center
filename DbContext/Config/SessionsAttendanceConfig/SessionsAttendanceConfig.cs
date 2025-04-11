@@ -20,11 +20,13 @@ namespace Education_Center_DbContext.Config.SessionsAttendanceConfig
 
             builder.HasOne(o => o.User)
                   .WithMany(m => m.SessionAttendances)
-                  .HasForeignKey(f => f.recorded_by);
+                  .HasForeignKey(f => f.Recorded_by);
 
             builder.HasOne(o => o.ClassSessions)
                    .WithMany(m => m.SessionAttendances)
                    .HasForeignKey(f => f.Session_id);
+
+            builder.Property(x => x.Status).HasConversion<string>();
         }
     }
 }

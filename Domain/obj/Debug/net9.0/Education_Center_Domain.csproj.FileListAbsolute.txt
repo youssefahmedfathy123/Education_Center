@@ -10,3 +10,4 @@ C:\Users\VIP\Desktop\Education_Center\Domain\obj\Debug\net9.0\Education_Center_D
 C:\Users\VIP\Desktop\Education_Center\Domain\obj\Debug\net9.0\refint\Education_Center_Domain.dll
 C:\Users\VIP\Desktop\Education_Center\Domain\obj\Debug\net9.0\Education_Center_Domain.pdb
 C:\Users\VIP\Desktop\Education_Center\Domain\obj\Debug\net9.0\ref\Education_Center_Domain.dll
+C:\Users\VIP\Desktop\Education_Center\Domain\obj\Debug\net9.0\Education_Center_Domain.sourcelink.json

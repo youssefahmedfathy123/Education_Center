@@ -6,14 +6,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Education_Center_Domain.Help
+namespace Education_Center_Contract.Dto.Attendance
 {
-    public class Create_SessionsAttendance
+   public class AttendanceGetDto
     {
-        public int Session_id { get; set; } // (FK → ClassSessions.id)
-        public string Student_UserName { get; set; }  // (FK → Users.id, Only Students)
+        public DateTime Date { get; set; } 
         public Status_Attendence Status { get; set; }
+        public string Student_id { get; set; }   
+        public string Recorded_by { get; set; } 
 
     }
 }
+
+
 

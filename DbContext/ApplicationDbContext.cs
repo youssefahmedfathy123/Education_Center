@@ -1,5 +1,6 @@
 ﻿using Education_Center_Domain.Entities;
 using Education_Center_Domain.Identity;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
@@ -8,14 +9,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Education_Center_DbContext
 {
    public class ApplicationDbContext : IdentityDbContext<User>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext>options) : base(options) { }
+        private readonly TestClass testClass;
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext>options, TestClass _testClass) : base(options) {
+            testClass = _testClass;
+        }
         public DbSet<Branch> Branches { get; set; }
         public DbSet<Center> Centers { get; set; }
         public DbSet<Subject> Subjects { get; set; }
@@ -35,6 +41,14 @@ namespace Education_Center_DbContext
 
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
+
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.AddInterceptors(testClass);
+            base.OnConfiguring(optionsBuilder);
+        }
+
 
 
     }

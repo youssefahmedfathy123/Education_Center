@@ -16,6 +16,8 @@ namespace Education_Center_DbContext.Config.AttendanceConfig
             builder.HasKey(x => x.Id);
             builder.HasOne(o => o.User).WithMany(m => m.Attendances).HasForeignKey(f => f.Student_id);
             builder.HasOne(o => o.User).WithMany(m => m.Attendances).HasForeignKey(f => f.Recorded_by);
+            builder.Property(x => x.Status).HasConversion<string>();
         }
     }
 }
+

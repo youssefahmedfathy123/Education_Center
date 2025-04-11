@@ -107,19 +107,25 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/Login"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Login"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Login"
+                "type": "object",
+                "properties": {
+                  "Email": {
+                    "type": "string"
+                  },
+                  "PassWord": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Email": {
+                  "style": "form"
+                },
+                "PassWord": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -131,10 +137,20 @@
         }
       }
     },
-    "/api/DashBoard_Managers/RecordAttendance": {
+    "/api/DashBoard_Managers/RecordAttendance/{StudentId}": {
       "post": {
         "tags": [
           "DashBoard_Managers"
+        ],
+        "parameters": [
+          {
+            "name": "StudentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "requestBody": {
           "content": {
@@ -142,19 +158,19 @@
               "schema": {
                 "type": "object",
                 "properties": {
+                  "Student_id": {
+                    "type": "string"
+                  },
                   "Status": {
                     "$ref": "#/components/schemas/Status_Attendence"
-                  },
-                  "Student_Email": {
-                    "type": "string"
                   }
                 }
               },
               "encoding": {
-                "Status": {
+                "Student_id": {
                   "style": "form"
                 },
-                "Student_Email": {
+                "Status": {
                   "style": "form"
                 }
               }
@@ -179,7 +195,11 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "Subject_name": {
+                  "Subject_id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Teacher_id": {
                     "type": "string"
                   },
                   "Branch_id": {
@@ -200,7 +220,10 @@
                 }
               },
               "encoding": {
-                "Subject_name": {
+                "Subject_id": {
+                  "style": "form"
+                },
+                "Teacher_id": {
                   "style": "form"
                 },
                 "Branch_id": {
@@ -226,10 +249,21 @@
         }
       }
     },
-    "/api/DashBoard_Managers/Session_Status": {
+    "/api/DashBoard_Managers/Session_Status/{Schedule_id}": {
       "post": {
         "tags": [
           "DashBoard_Managers"
+        ],
+        "parameters": [
+          {
+            "name": "Schedule_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "requestBody": {
           "content": {
@@ -243,6 +277,10 @@
                   },
                   "Status": {
                     "$ref": "#/components/schemas/Status_ClassSessions"
+                  },
+                  "Date": {
+                    "type": "string",
+                    "format": "date-time"
                   }
                 }
               },
@@ -251,6 +289,58 @@
                   "style": "form"
                 },
                 "Status": {
+                  "style": "form"
+                },
+                "Date": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DashBoard_Managers/CreateSubject/{branchId}": {
+      "post": {
+        "tags": [
+          "DashBoard_Managers"
+        ],
+        "parameters": [
+          {
+            "name": "branchId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Name": {
+                    "$ref": "#/components/schemas/SubjectName"
+                  },
+                  "Branch_id": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "encoding": {
+                "Name": {
+                  "style": "form"
+                },
+                "Branch_id": {
                   "style": "form"
                 }
               }
@@ -271,19 +361,25 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/CreateStudentSubjects"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateStudentSubjects"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateStudentSubjects"
+                "type": "object",
+                "properties": {
+                  "Email": {
+                    "type": "string"
+                  },
+                  "SubjectName": {
+                    "$ref": "#/components/schemas/SubjectName"
+                  }
+                }
+              },
+              "encoding": {
+                "Email": {
+                  "style": "form"
+                },
+                "SubjectName": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -295,10 +391,20 @@
         }
       }
     },
-    "/api/DashBoard_Students/Get_detailed_attendance_ByUser": {
+    "/api/DashBoard_Students/Get_detailed_attendance_ByUser/{StudentId}": {
       "get": {
         "tags": [
           "DashBoard_Students"
+        ],
+        "parameters": [
+          {
+            "name": "StudentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -307,10 +413,20 @@
         }
       }
     },
-    "/api/DashBoard_Students/Display_total_absences_perStudent_ByStudent": {
+    "/api/DashBoard_Students/Display_total_absences_perStudent_ByStudent/{StudentId}": {
       "get": {
         "tags": [
           "DashBoard_Students"
+        ],
+        "parameters": [
+          {
+            "name": "StudentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -319,10 +435,20 @@
         }
       }
     },
-    "/api/DashBoard_Students/Display_total_Grades_ByUser": {
+    "/api/DashBoard_Students/Display_total_Grades_ByUser/{StudentId}": {
       "get": {
         "tags": [
           "DashBoard_Students"
+        ],
+        "parameters": [
+          {
+            "name": "StudentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -343,26 +469,44 @@
         }
       }
     },
-    "/api/DashBoard_Teacher/Create_Subject": {
+    "/api/DashBoard_Teacher/Create_Subject/{branchId}": {
       "post": {
         "tags": [
           "DashBoard_Teacher"
         ],
+        "parameters": [
+          {
+            "name": "branchId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/Dto_CreateSubject"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Dto_CreateSubject"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Dto_CreateSubject"
+                "type": "object",
+                "properties": {
+                  "Name": {
+                    "$ref": "#/components/schemas/SubjectName"
+                  },
+                  "Branch_id": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "encoding": {
+                "Name": {
+                  "style": "form"
+                },
+                "Branch_id": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -386,26 +530,81 @@
         }
       }
     },
-    "/api/DashBoard_Teacher/Assign_Grades": {
+    "/api/DashBoard_Teacher/Assign_Grades/{SubjectId}/{Grade_type_id}/{Student_id}": {
       "post": {
         "tags": [
           "DashBoard_Teacher"
         ],
+        "parameters": [
+          {
+            "name": "SubjectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Grade_type_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Student_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/AssignGrades"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AssignGrades"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/AssignGrades"
+                "type": "object",
+                "properties": {
+                  "Student_id": {
+                    "type": "string"
+                  },
+                  "Subject_id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Grade_type_id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "_Grade": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Comments": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Student_id": {
+                  "style": "form"
+                },
+                "Subject_id": {
+                  "style": "form"
+                },
+                "Grade_type_id": {
+                  "style": "form"
+                },
+                "_Grade": {
+                  "style": "form"
+                },
+                "Comments": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -424,19 +623,19 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/Dto_GradeTypes"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Dto_GradeTypes"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Dto_GradeTypes"
+                "type": "object",
+                "properties": {
+                  "Name": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Name": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -448,10 +647,29 @@
         }
       }
     },
-    "/api/DashBoard_Teacher/SessionAttendance": {
+    "/api/DashBoard_Teacher/SessionAttendance/{Session_id}/{Student_id}": {
       "post": {
         "tags": [
           "DashBoard_Teacher"
+        ],
+        "parameters": [
+          {
+            "name": "Student_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "requestBody": {
           "content": {
@@ -463,7 +681,7 @@
                     "type": "integer",
                     "format": "int32"
                   },
-                  "Student_UserName": {
+                  "Student_id": {
                     "type": "string"
                   },
                   "Status": {
@@ -475,7 +693,7 @@
                 "Session_id": {
                   "style": "form"
                 },
-                "Student_UserName": {
+                "Student_id": {
                   "style": "form"
                 },
                 "Status": {
@@ -534,54 +752,6 @@
   },
   "components": {
     "schemas": {
-      "AssignGrades": {
-        "type": "object",
-        "properties": {
-          "studentEmail": {
-            "type": "string",
-            "nullable": true
-          },
-          "subjectName": {
-            "type": "string",
-            "nullable": true
-          },
-          "branchId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "gradtypeId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "grade": {
-            "type": "number",
-            "format": "double"
-          },
-          "comment": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateStudentSubjects": {
-        "type": "object",
-        "properties": {
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "subject": {
-            "type": "string",
-            "nullable": true
-          },
-          "branch": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "Days": {
         "enum": [
           1,
@@ -594,44 +764,6 @@
         ],
         "type": "integer",
         "format": "int32"
-      },
-      "Dto_CreateSubject": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "branch_id": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Dto_GradeTypes": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Login": {
-        "type": "object",
-        "properties": {
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "passWord": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
       },
       "Status_Attendence": {
         "enum": [
@@ -647,6 +779,43 @@
           0,
           1,
           2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "SubjectName": {
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
         ],
         "type": "integer",
         "format": "int32"

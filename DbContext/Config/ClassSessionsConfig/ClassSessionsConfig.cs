@@ -17,6 +17,7 @@ namespace Education_Center_DbContext.Config.ClassSessionsConfig
             builder.HasOne(o => o.ClassSchedule)
                    .WithMany(m => m.ClassSessions)
                    .HasForeignKey(f => f.Schedule_id);
+            builder.Property(x => x.Status).HasConversion<string>();
         }
     }
 }

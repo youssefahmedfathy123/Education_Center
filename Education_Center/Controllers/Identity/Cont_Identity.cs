@@ -53,7 +53,7 @@ namespace Education_Center.Controllers.Identity
         // Login
         [HttpPost]
         [Route("Login")]
-        public async Task<IActionResult> Login([FromBody] Login login)
+        public async Task<IActionResult> Login([FromForm] Login login)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Model is not valid!");

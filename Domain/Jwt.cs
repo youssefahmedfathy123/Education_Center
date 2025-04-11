@@ -14,11 +14,12 @@ namespace Education_Center
             _configuration = configuration;
         }
 
-        public string GenerateToken(List<string>roles,string username)
+        public string GenerateToken(List<string>roles,string username,string Id)
         {
             List<Claim> Claims = new List<Claim>();
 
             Claims.Add(new Claim(ClaimTypes.Name, username));
+            Claims.Add(new Claim(ClaimTypes.NameIdentifier, Id));
 
             foreach (var role in roles)
             {

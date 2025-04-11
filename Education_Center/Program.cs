@@ -19,6 +19,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 // Configure Swagger with JWT authentication
+builder.Services.AddTransient<TestClass>();
+builder.Services.AddHttpContextAccessor();      
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo

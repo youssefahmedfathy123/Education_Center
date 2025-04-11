@@ -20,7 +20,8 @@ namespace Education_Center_Contract.Interfaces.UnitOfWork
         IEducation_crud<SessionAttendance> SessionAttendance { get; }
 
 
-        
+
+
 
 
 

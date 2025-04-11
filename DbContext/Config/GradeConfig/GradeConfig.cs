@@ -13,9 +13,6 @@ namespace Education_Center_DbContext.Config.GradeConfig
         public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<Grade> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.HasOne(o => o.User)
-                 .WithMany(m => m.Grades)
-                 .HasForeignKey(f => f.Teacher_id);
             builder
                 .HasOne(o => o.Subject)
                 .WithMany(m => m.Grades)

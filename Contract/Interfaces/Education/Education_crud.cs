@@ -25,7 +25,7 @@ namespace Education_Center_Contract.Interfaces.Education
             var res = _mapping.Map<Dto, T>(dto);
 
              _db.Set<T>().Add(res);
-            await _db.SaveChangesAsync();
+           await _db.SaveChangesAsync();
 
             return "Created";
         }

@@ -38,7 +38,7 @@ namespace Education_Center_Contract.Interfaces.Identity
 
             var roles = await _user.GetRolesAsync(Find_user);
 
-            var token =  _jwt.GenerateToken(roles.ToList(),Find_user.UserName);
+            var token =  _jwt.GenerateToken(roles.ToList(),Find_user.UserName,Find_user.Id);
 
             var branch = _db.Branches.FirstOrDefault(b => b.Id == Find_user.Branch_id);
 
@@ -116,7 +116,7 @@ namespace Education_Center_Contract.Interfaces.Identity
 
             var Role = await _user.GetRolesAsync(NewUser);
 
-            var token = _jwt.GenerateToken(Role.ToList(),register.UserName);
+            var token = _jwt.GenerateToken(Role.ToList(),register.UserName,NewUser.Id);
             
             return new Show
             {

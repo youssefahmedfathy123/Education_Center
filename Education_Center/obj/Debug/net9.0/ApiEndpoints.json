@@ -8,9 +8,14 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "login",
-        "Type": "Education_Center_Domain.Identity.Login",
-        "IsRequired": true
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PassWord",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -90,7 +95,12 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Subject_name",
+        "Name": "Subject_id",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Teacher_id",
         "Type": "System.String",
         "IsRequired": false
       },
@@ -119,21 +129,52 @@
   },
   {
     "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_ManagersController",
-    "Method": "RecordAttendance",
-    "RelativePath": "api/DashBoard_Managers/RecordAttendance",
+    "Method": "CreateSubject",
+    "RelativePath": "api/DashBoard_Managers/CreateSubject/{branchId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Branch_id",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "branchId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_ManagersController",
+    "Method": "RecordAttendance",
+    "RelativePath": "api/DashBoard_Managers/RecordAttendance/{StudentId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Student_id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
       {
         "Name": "Status",
         "Type": "System.String",
         "IsRequired": false
       },
       {
-        "Name": "Student_Email",
+        "Name": "StudentId",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -141,20 +182,30 @@
   {
     "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_ManagersController",
     "Method": "Session_Status",
-    "RelativePath": "api/DashBoard_Managers/Session_Status",
+    "RelativePath": "api/DashBoard_Managers/Session_Status/{Schedule_id}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "Schedule_id",
-        "Type": "System.Int32",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       },
       {
         "Name": "Status",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "Date",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Schedule_id",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -162,21 +213,33 @@
   {
     "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_StudentsController",
     "Method": "Display_total_absences_perStudent_ByStudent",
-    "RelativePath": "api/DashBoard_Students/Display_total_absences_perStudent_ByStudent",
+    "RelativePath": "api/DashBoard_Students/Display_total_absences_perStudent_ByStudent/{StudentId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "StudentId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
     "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_StudentsController",
     "Method": "Display_total_Grades_ByUser",
-    "RelativePath": "api/DashBoard_Students/Display_total_Grades_ByUser",
+    "RelativePath": "api/DashBoard_Students/Display_total_Grades_ByUser/{StudentId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "StudentId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -188,9 +251,14 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "create",
-        "Type": "Education_Center_Domain.Help.CreateStudentSubjects",
-        "IsRequired": true
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "SubjectName",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -198,16 +266,22 @@
   {
     "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_StudentsController",
     "Method": "Get_detailed_attendance_ByUser",
-    "RelativePath": "api/DashBoard_Students/Get_detailed_attendance_ByUser",
+    "RelativePath": "api/DashBoard_Students/Get_detailed_attendance_ByUser/{StudentId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "StudentId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
     "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_StudentsController",
-    "Method": "upcoming_class_sessions",
+    "Method": "Upcoming_class_sessions",
     "RelativePath": "api/DashBoard_Students/upcoming_class_sessions",
     "HttpMethod": "GET",
     "IsController": true,
@@ -224,9 +298,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "Education_Center_Contract.Dto.Dto_GradeTypes",
-        "IsRequired": true
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -234,14 +308,49 @@
   {
     "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_TeacherController",
     "Method": "Assign_Grades",
-    "RelativePath": "api/DashBoard_Teacher/Assign_Grades",
+    "RelativePath": "api/DashBoard_Teacher/Assign_Grades/{SubjectId}/{Grade_type_id}/{Student_id}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "assign",
-        "Type": "Education_Center_Domain.Help.AssignGrades",
+        "Name": "Student_id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Subject_id",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Grade_type_id",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "_Grade",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Comments",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "SubjectId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "Grade_type_id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "Student_id",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -250,14 +359,24 @@
   {
     "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_TeacherController",
     "Method": "Create_Subject",
-    "RelativePath": "api/DashBoard_Teacher/Create_Subject",
+    "RelativePath": "api/DashBoard_Teacher/Create_Subject/{branchId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "Education_Center_Contract.Dto.Dto_CreateSubject",
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Branch_id",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "branchId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -276,18 +395,18 @@
   {
     "ContainingType": "Education_Center.Controllers.Education_Crud.DashBoard_TeacherController",
     "Method": "SessionAttendance",
-    "RelativePath": "api/DashBoard_Teacher/SessionAttendance",
+    "RelativePath": "api/DashBoard_Teacher/SessionAttendance/{Session_id}/{Student_id}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "Session_id",
-        "Type": "System.Int32",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       },
       {
-        "Name": "Student_UserName",
+        "Name": "Student_id",
         "Type": "System.String",
         "IsRequired": false
       },
@@ -295,6 +414,16 @@
         "Name": "Status",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "Student_id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "Session_id",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

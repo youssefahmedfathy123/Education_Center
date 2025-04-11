@@ -167,3 +167,4 @@ C:\Users\VIP\Desktop\Education_Center\Education_Center\bin\Debug\net9.0\AutoMapp
 C:\Users\VIP\Desktop\Education_Center\Education_Center\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\VIP\Desktop\Education_Center\Education_Center\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\VIP\Desktop\Education_Center\Education_Center\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\VIP\Desktop\Education_Center\Education_Center\obj\Debug\net9.0\Education_Center.sourcelink.json

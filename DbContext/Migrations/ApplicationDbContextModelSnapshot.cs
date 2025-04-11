@@ -31,10 +31,9 @@ namespace Education_Center_DbContext.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("Date")
@@ -47,18 +46,17 @@ namespace Education_Center_DbContext.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ModifiedOn")
+                    b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Recorded_by")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Student_id")
                         .IsRequired()
@@ -68,7 +66,7 @@ namespace Education_Center_DbContext.Migrations
 
                     b.HasIndex("Recorded_by");
 
-                    b.ToTable("Attendances");
+                    b.ToTable("Attendances", (string)null);
                 });
 
             modelBuilder.Entity("Education_Center_Domain.Entities.Branch", b =>
@@ -113,7 +111,7 @@ namespace Education_Center_DbContext.Migrations
 
                     b.HasIndex("ManagerId");
 
-                    b.ToTable("Branches");
+                    b.ToTable("Branches", (string)null);
                 });
 
             modelBuilder.Entity("Education_Center_Domain.Entities.Center", b =>
@@ -152,7 +150,7 @@ namespace Education_Center_DbContext.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Centers");
+                    b.ToTable("Centers", (string)null);
                 });
 
             modelBuilder.Entity("Education_Center_Domain.Entities.ClassSchedule", b =>
@@ -172,8 +170,9 @@ namespace Education_Center_DbContext.Migrations
                     b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Day_of_week")
-                        .HasColumnType("int");
+                    b.Property<string>("Day_of_week")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<TimeSpan>("End_time")
                         .HasColumnType("time");
@@ -207,7 +206,7 @@ namespace Education_Center_DbContext.Migrations
 
                     b.HasIndex("Teacher_id");
 
-                    b.ToTable("ClassSchedules");
+                    b.ToTable("ClassSchedules", (string)null);
                 });
 
             modelBuilder.Entity("Education_Center_Domain.Entities.ClassSessions", b =>
@@ -219,13 +218,12 @@ namespace Education_Center_DbContext.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("Date")
+                    b.Property<DateTime?>("Date")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsActive")
@@ -235,23 +233,23 @@ namespace Education_Center_DbContext.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ModifiedOn")
+                    b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Schedule_id")
                         .HasColumnType("int");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("Schedule_id");
 
-                    b.ToTable("ClassSessions");
+                    b.ToTable("ClassSessions", (string)null);
                 });
 
             modelBuilder.Entity("Education_Center_Domain.Entities.Grade", b =>
@@ -267,13 +265,12 @@ namespace Education_Center_DbContext.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Grade_type_id")
+                    b.Property<int?>("Grade_type_id")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsActive")
@@ -283,21 +280,18 @@ namespace Education_Center_DbContext.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ModifiedOn")
+                    b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Student_id")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Subject_id")
+                    b.Property<int?>("Subject_id")
                         .HasColumnType("int");
 
-                    b.Property<string>("Teacher_id")
-                        .IsRequired()
+                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<decimal>("_Grade")
@@ -309,9 +303,9 @@ namespace Education_Center_DbContext.Migrations
 
                     b.HasIndex("Subject_id");
 
-                    b.HasIndex("Teacher_id");
+                    b.HasIndex("UserId");
 
-                    b.ToTable("Grades");
+                    b.ToTable("Grades", (string)null);
                 });
 
             modelBuilder.Entity("Education_Center_Domain.Entities.GradeTypes", b =>
@@ -323,10 +317,9 @@ namespace Education_Center_DbContext.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsActive")
@@ -336,10 +329,9 @@ namespace Education_Center_DbContext.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ModifiedOn")
+                    b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
@@ -348,7 +340,7 @@ namespace Education_Center_DbContext.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("GradeTypes");
+                    b.ToTable("GradeTypes", (string)null);
                 });
 
             modelBuilder.Entity("Education_Center_Domain.Entities.SessionAttendance", b =>
@@ -360,10 +352,9 @@ namespace Education_Center_DbContext.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsActive")
@@ -373,33 +364,31 @@ namespace Education_Center_DbContext.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ModifiedOn")
+                    b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Recorded_by")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Session_id")
                         .HasColumnType("int");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Student_id")
+                    b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("recorded_by")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<string>("Student_id")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Recorded_by");
+
                     b.HasIndex("Session_id");
 
-                    b.HasIndex("recorded_by");
-
-                    b.ToTable("SessionAttendance");
+                    b.ToTable("SessionAttendance", (string)null);
                 });
 
             modelBuilder.Entity("Education_Center_Domain.Entities.StudentSubjects", b =>
@@ -410,11 +399,13 @@ namespace Education_Center_DbContext.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("BranchId")
+                        .HasColumnType("int");
+
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsActive")
@@ -424,10 +415,9 @@ namespace Education_Center_DbContext.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ModifiedOn")
+                    b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Student_id")
@@ -437,13 +427,17 @@ namespace Education_Center_DbContext.Migrations
                     b.Property<int>("Subject_id")
                         .HasColumnType("int");
 
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Student_id");
 
                     b.HasIndex("Subject_id");
 
-                    b.ToTable("StudentSubjects");
+                    b.ToTable("StudentSubjects", (string)null);
                 });
 
             modelBuilder.Entity("Education_Center_Domain.Entities.Subject", b =>
@@ -458,10 +452,9 @@ namespace Education_Center_DbContext.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsActive")
@@ -471,10 +464,9 @@ namespace Education_Center_DbContext.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ModifiedOn")
+                    b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
@@ -485,7 +477,7 @@ namespace Education_Center_DbContext.Migrations
 
                     b.HasIndex("Branch_id");
 
-                    b.ToTable("Subjects");
+                    b.ToTable("Subjects", (string)null);
                 });
 
             modelBuilder.Entity("Education_Center_Domain.Entities.TeacherSubject", b =>
@@ -497,10 +489,9 @@ namespace Education_Center_DbContext.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsActive")
@@ -510,10 +501,9 @@ namespace Education_Center_DbContext.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ModifiedOn")
+                    b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Subject_id")
@@ -529,7 +519,7 @@ namespace Education_Center_DbContext.Migrations
 
                     b.HasIndex("Teacher_id");
 
-                    b.ToTable("TeacherSubjects");
+                    b.ToTable("TeacherSubjects", (string)null);
                 });
 
             modelBuilder.Entity("Education_Center_Domain.Identity.User", b =>
@@ -550,7 +540,7 @@ namespace Education_Center_DbContext.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
@@ -765,9 +755,7 @@ namespace Education_Center_DbContext.Migrations
                 {
                     b.HasOne("Education_Center_Domain.Identity.User", "User")
                         .WithMany("Attendances")
-                        .HasForeignKey("Recorded_by")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Recorded_by");
 
                     b.Navigation("User");
                 });
@@ -825,21 +813,15 @@ namespace Education_Center_DbContext.Migrations
                 {
                     b.HasOne("Education_Center_Domain.Entities.GradeTypes", "GradeType")
                         .WithMany("Grades")
-                        .HasForeignKey("Grade_type_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Grade_type_id");
 
                     b.HasOne("Education_Center_Domain.Entities.Subject", "Subject")
                         .WithMany("Grades")
-                        .HasForeignKey("Subject_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Subject_id");
 
                     b.HasOne("Education_Center_Domain.Identity.User", "User")
                         .WithMany("Grades")
-                        .HasForeignKey("Teacher_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("GradeType");
 
@@ -850,15 +832,13 @@ namespace Education_Center_DbContext.Migrations
 
             modelBuilder.Entity("Education_Center_Domain.Entities.SessionAttendance", b =>
                 {
+                    b.HasOne("Education_Center_Domain.Identity.User", "User")
+                        .WithMany("SessionAttendances")
+                        .HasForeignKey("Recorded_by");
+
                     b.HasOne("Education_Center_Domain.Entities.ClassSessions", "ClassSessions")
                         .WithMany("SessionAttendances")
                         .HasForeignKey("Session_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Education_Center_Domain.Identity.User", "User")
-                        .WithMany("SessionAttendances")
-                        .HasForeignKey("recorded_by")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

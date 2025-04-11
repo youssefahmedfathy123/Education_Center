@@ -1,8 +1,10 @@
-﻿using Education_Center_Contract.Dto;
+﻿using Education_Center_Contract.Dto.Attendance;
+using Education_Center_Contract.Dto.ClassSchedule;
+using Education_Center_Contract.Dto.ClassSession;
+using Education_Center_Contract.Dto.Subject;
 using Education_Center_Contract.Interfaces.UnitOfWork;
 using Education_Center_DbContext;
 using Education_Center_Domain.Enum;
-using Education_Center_Domain.Help;
 using Education_Center_Domain.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -32,104 +34,71 @@ namespace Education_Center.Controllers.Education_Crud
 
 
         [Authorize(Roles ="Manager")]
-        [HttpPost("RecordAttendance")]
-        public async Task<IActionResult> RecordAttendance([FromForm]EnrollAttendance record)
+        [HttpPost("RecordAttendance/{StudentId}")]
+        public async Task<IActionResult> RecordAttendance([FromForm] AttendanceCreateDto record,string StudentId)
         {
-            var manager_username = HttpContext.User.FindFirstValue(ClaimTypes.Name);
-            var _manager = await _user.FindByNameAsync(manager_username);
 
-            if (_manager == null)
-                return NotFound("Manager Not Found!");
-
-            var student = await _user.FindByEmailAsync(record.Student_Email);
-
-            if (student == null)
-                return NotFound("Manager Not Found!");
-
-
-            var res = new Dto_enrollAttendance
-            {
-                Status = (record.Status).ToString(),
-                Recorded_by = _manager.Id,
-                Student_id = student.Id
-            };
-
-            var Final_result = await _unit.Attendances.Create<Dto_enrollAttendance>(res);
+            record.Student_id = StudentId;
+            var Final_result = await _unit.Attendances.Create(record);
 
             return Ok(Final_result);
         }
 
 
-        //2.	 Schedules 
-        //•	Each subject has a schedule defining days and times.
         [Authorize(Roles = "Manager")]
         [HttpPost("CreateSchedule")]
-        public async Task<IActionResult> CreateSchedule([FromForm]ClassSchedule schedule)
+        public async Task<IActionResult> CreateSchedule([FromForm]ClassSceduleDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Model not valid!");
 
-            var name = HttpContext.User.FindFirstValue(ClaimTypes.Name);
-            var Manager = await _user.FindByNameAsync(name);
+            var teacher = await _user.FindByIdAsync(dto.Teacher_id);
+            if (teacher is null) return NotFound("Teacher not found!");
 
-            if (Manager is null)
-                return NotFound("Subject not found!");
 
-            var subject = await _db.Subjects.FirstOrDefaultAsync(s => s.Name.ToLower() == schedule.Subject_name.ToLower()
-               && s.Branch_id == schedule.Branch_id
-            );
-
+        var subject = await _db.Subjects.FirstOrDefaultAsync(s => s.Id == dto.Subject_id
+               && s.Branch_id == dto.Branch_id);
             if (subject is null)
                 return NotFound("Subject not found!");
 
 
-            var dto = new Dto_ClassScedule
-            {
-                Subject_id = subject.Id,
-                Branch_id = schedule.Branch_id,
-                Teacher_id = Manager.Id,
-                Day_of_week = (schedule.Day_of_week).ToString(),
-                Start_time = schedule.Start_time,
-                End_time = schedule.End_time
-            };
-
-
-            var Final_result = await _unit.ClassSchedule.Create<Dto_ClassScedule>(dto);
+            var Final_result = await _unit.ClassSchedule.Create(dto);
 
             return Ok(Final_result);
         }
 
-
-
-
-        //•	Individual sessions are created based on the schedule.
-        //•	A session can be marked as completed or canceled.
 
         [Authorize(Roles = "Manager")]
-        [HttpPost("Session_Status")]
-        public async Task<IActionResult> Session_Status([FromForm]Create_ClassSessions created)
+        [HttpPost("Session_Status/{Schedule_id}")]
+        public async Task<IActionResult> Session_Status([FromForm]ClassSessionsDto dto,int Schedule_id)
         {
-            var name = HttpContext.User.FindFirstValue(ClaimTypes.Name);
-            var Manager = await _user.FindByNameAsync(name);
+            if (!ModelState.IsValid)
+                return BadRequest("Model not valid!");
 
-            if (Manager is null)
-                return NotFound("User not found!");
-
-            var dto = new Dto_ClassSessions
-            {
-                Schedule_id = created.Schedule_id,
-                Status = (created.Status).ToString(),
-                Date = DateTime.Now
-            };
-
-            var Final_result = await _unit.ClassSessions.Create<Dto_ClassSessions>(dto);
+            dto.Schedule_id = Schedule_id;
+            var Final_result = await _unit.ClassSessions.Create(dto);
 
             return Ok(Final_result);
         }
 
+
+
+        [Authorize(Roles = "Manager")]
+        [HttpPost("CreateSubject/{branchId}")]
+        public async Task<IActionResult> CreateSubject([FromForm] SubjectCreateDto dto,int branchId)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Model not valid!");
+
+            dto.Branch_id = branchId;
+            var result = await _unit.Subjects.Create(dto);
+
+            return Ok(result);
+        }
 
 
 
     }
 }
+
 
